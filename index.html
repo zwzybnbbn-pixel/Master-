@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>دليل دوام الأطباء</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="menu-container">
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <div class="menu-box" id="menuBox">
+        <a href="index.html">الصفحة الرئيسية</a>
+        <a href="contact.html">التواصل</a>
+        <a href="complaint.html">الشكاوي</a>
+        <a href="support.html">الدعم</a>
+    </div>
+</div>
+
+<header class="hero">
+    <h1>دليل دوام الأطباء</h1>
+    <p>ابحث عن الطبيب ومعرفة دوامــه بسهولة</p>
+</header>
+
+<div class="search-area">
+    <input type="text" id="searchInput" placeholder="اكتب اسم الدكتور...">
+    <button onclick="searchDoctor()">بحث</button>
+</div>
+
+<h2 class="section-title">بطاقات الأطباء</h2>
+<div id="doctorCards" class="cards"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

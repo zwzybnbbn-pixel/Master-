@@ -1,0 +1,11 @@
+body{font-family:Cairo;background:#eef6fb;margin:0;text-align:center}
+.menu-container{position:fixed;top:10px;right:10px}
+.menu-btn{font-size:28px;background:#007bff;color:#fff;border:0;padding:10px 15px;border-radius:6px}
+.menu-box{display:none;background:#fff;padding:10px;border-radius:8px;box-shadow:0 4px 10px #0003}
+.menu-box a{display:block;padding:10px;text-decoration:none;color:#003b69}
+.hero{background:#007bff;color:white;padding:60px 20px;border-radius:0 0 20px 20px}
+.search-area{margin:20px}
+.cards{padding:20px}
+.center-box{margin-top:80px;padding:20px;background:#fff;border-radius:12px;box-shadow:0 4px 15px #0002;display:inline-block}
+textarea{width:250px;height:120px;padding:10px}
+.btn{display:block;margin:15px auto;padding:12px 18px;background:#007bff;color:white;text-decoration:none;border-radius:6px}
