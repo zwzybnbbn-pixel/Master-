@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -34,7 +33,6 @@
             overflow-x: hidden;
         }
         
-        /* التصميم العام */
         .container {
             width: 90%;
             max-width: 1200px;
@@ -111,7 +109,6 @@
             background: linear-gradient(to left, #fa8231, var(--secondary-color));
         }
         
-        /* الشريط العلوي */
         header {
             position: fixed;
             top: 0;
@@ -201,7 +198,6 @@
             cursor: pointer;
         }
         
-        /* القسم الرئيسي */
         .hero {
             background: linear-gradient(rgba(12, 36, 97, 0.85), rgba(12, 36, 97, 0.9)), url('https://images.unsplash.com/photo-1554048612-b6a482bc67e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
@@ -238,7 +234,6 @@
             margin-top: 30px;
         }
         
-        /* قسم عن المصور */
         .about {
             background-color: white;
         }
@@ -305,7 +300,6 @@
             color: #777;
         }
         
-        /* قسم المعرض */
         .portfolio {
             background-color: #f5f7ff;
         }
@@ -380,7 +374,6 @@
             opacity: 1;
         }
         
-        /* قسم الخدمات */
         .services {
             background-color: white;
         }
@@ -437,7 +430,6 @@
             margin: 15px 0;
         }
         
-        /* قسم الحجز */
         .booking {
             background-color: #f5f7ff;
         }
@@ -510,7 +502,6 @@
             outline: none;
         }
         
-        /* قسم تسجيل الدخول */
         .auth-section {
             background-color: white;
             display: flex;
@@ -623,7 +614,6 @@
             color: white;
         }
         
-        /* قسم التواصل */
         .contact {
             background-color: #f5f7ff;
         }
@@ -667,7 +657,6 @@
             color: var(--primary-color);
         }
         
-        /* التذييل */
         footer {
             background-color: var(--primary-color);
             color: white;
@@ -755,7 +744,6 @@
             font-size: 0.9rem;
         }
         
-        /* تأثيرات التمرير */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -767,7 +755,6 @@
             transform: translateY(0);
         }
         
-        /* التجاوب مع الشاشات المختلفة */
         @media (max-width: 992px) {
             .about-content, .booking-container, .contact-content {
                 flex-direction: column;
@@ -851,7 +838,6 @@
     </style>
 </head>
 <body>
-    <!-- الشريط العلوي -->
     <header id="header">
         <div class="container header-container">
             <a href="#" class="logo">
@@ -877,7 +863,6 @@
         </div>
     </header>
 
-    <!-- القسم الرئيسي -->
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content fade-in">
@@ -891,7 +876,6 @@
         </div>
     </section>
 
-    <!-- قسم عن المصور -->
     <section id="about" class="about">
         <div class="container">
             <div class="section-title fade-in">
@@ -932,7 +916,6 @@
         </div>
     </section>
 
-    <!-- قسم المعرض -->
     <section id="portfolio" class="portfolio">
         <div class="container">
             <div class="section-title fade-in">
@@ -1000,7 +983,6 @@
         </div>
     </section>
 
-    <!-- قسم الخدمات -->
     <section id="services" class="services">
         <div class="container">
             <div class="section-title fade-in">
@@ -1072,7 +1054,7 @@
         </div>
     </section>
 
-    <!-- قسم الحجز -->
+    <!-- قسم الحجز المعدل -->
     <section id="booking" class="booking">
         <div class="container">
             <div class="section-title fade-in">
@@ -1122,13 +1104,13 @@
                             <textarea id="message" class="form-control" rows="5"></textarea>
                         </div>
                         
-                        <button type="submit" class="btn" style="width: 100%;">إرسال طلب الحجز</button>
+                        <button type="submit" class="btn" style="width: 100%;">إرسال طلب الحجز إلى واتساب</button>
                     </form>
                 </div>
                 
                 <div class="booking-info">
                     <h3>معلومات الحجز</h3>
-                    <p>لضمان حصولك على أفضل تجربة تصوير، يرجى اتباع التعليمات التالية:</p>
+                    <p>بعد إرسال طلب الحجز، سيتم فتح تطبيق واتساب تلقائيًا لإرسال تفاصيل حجزك مباشرة إلى المصور.</p>
                     
                     <ul>
                         <li>
@@ -1163,7 +1145,8 @@
                     
                     <div style="margin-top: 40px;">
                         <h4>للتواصل السريع:</h4>
-                        <p><i class="fas fa-phone" style="color: var(--primary-color); margin-left: 10px;"></i> 0561234567</p>
+                        <p><i class="fas fa-phone" style="color: var(--primary-color); margin-left: 10px;"></i> 773 684 474</p>
+                        <p><i class="fab fa-whatsapp" style="color: var(--primary-color); margin-left: 10px;"></i> واتساب: 773 684 474</p>
                         <p><i class="fas fa-envelope" style="color: var(--primary-color); margin-left: 10px;"></i> abdullah@photography.com</p>
                     </div>
                 </div>
@@ -1171,7 +1154,6 @@
         </div>
     </section>
 
-    <!-- قسم تسجيل الدخول -->
     <section id="auth" class="auth-section">
         <div class="container">
             <div class="section-title fade-in">
@@ -1259,7 +1241,6 @@
         </div>
     </section>
 
-    <!-- قسم التواصل -->
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-title fade-in">
@@ -1285,7 +1266,17 @@
                         </div>
                         <div class="contact-text">
                             <h4>الهاتف</h4>
-                            <p>+966 56 123 4567</p>
+                            <p>+966 773 684 474</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>واتساب</h4>
+                            <p>+966 773 684 474</p>
                         </div>
                     </div>
                     
@@ -1358,7 +1349,6 @@
         </div>
     </section>
 
-    <!-- التذييل -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -1404,7 +1394,8 @@
                     <h3>اتصل بنا</h3>
                     <ul class="footer-links">
                         <li><i class="fas fa-map-marker-alt" style="margin-left: 10px;"></i> الرياض، حي العليا</li>
-                        <li><i class="fas fa-phone" style="margin-left: 10px;"></i> +966 56 123 4567</li>
+                        <li><i class="fas fa-phone" style="margin-left: 10px;"></i> +966 773 684 474</li>
+                        <li><i class="fab fa-whatsapp" style="margin-left: 10px;"></i> واتساب: 773 684 474</li>
                         <li><i class="fas fa-envelope" style="margin-left: 10px;"></i> abdullah@photography.com</li>
                     </ul>
                 </div>
@@ -1417,7 +1408,6 @@
     </footer>
 
     <script>
-        // كود JavaScript للموقع
         document.addEventListener('DOMContentLoaded', function() {
             // تأثير التمرير للشريط العلوي
             const header = document.getElementById('header');
@@ -1462,9 +1452,8 @@
                 });
             };
             
-            // التحقق عند التحميل والتمرير
             window.addEventListener('scroll', fadeInOnScroll);
-            fadeInOnScroll(); // التحقق عند التحميل
+            fadeInOnScroll();
             
             // تصفية المعرض
             const filterBtns = document.querySelectorAll('.filter-btn');
@@ -1472,9 +1461,7 @@
             
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
-                    // إزالة النشاط من جميع الأزرار
                     filterBtns.forEach(b => b.classList.remove('active'));
-                    // إضافة النشاط للزر المحدد
                     this.classList.add('active');
                     
                     const filterValue = this.getAttribute('data-filter');
@@ -1505,23 +1492,67 @@
                 tab.addEventListener('click', function() {
                     const tabId = this.getAttribute('data-tab');
                     
-                    // إزالة النشاط من جميع الألسنة
                     authTabs.forEach(t => t.classList.remove('active'));
-                    // إضافة النشاط للسان المحدد
                     this.classList.add('active');
                     
-                    // إخفاء جميع النماذج
                     authForms.forEach(form => form.classList.remove('active'));
-                    // إظهار النموذج المحدد
                     document.getElementById(`${tabId}Form`).classList.add('active');
                 });
             });
             
-            // معالجة نموذج الحجز
+            // =============================================
+            // نظام الحجز الحقيقي إلى واتساب
+            // =============================================
             const bookingForm = document.getElementById('bookingForm');
             bookingForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                alert('شكراً لك! تم استلام طلب الحجز بنجاح. سنتواصل معك خلال 24 ساعة لتأكيد التفاصيل.');
+                
+                // جمع بيانات النموذج
+                const name = document.getElementById('name').value;
+                const phone = document.getElementById('phone').value;
+                const email = document.getElementById('email').value;
+                const service = document.getElementById('service').value;
+                const date = document.getElementById('date').value;
+                const message = document.getElementById('message').value;
+                
+                // تحويل اسم الخدمة إلى نص مفهوم
+                let serviceText = '';
+                switch(service) {
+                    case 'wedding': serviceText = 'تصوير الأعراس'; break;
+                    case 'portrait': serviceText = 'تصوير شخصي'; break;
+                    case 'product': serviceText = 'تصوير المنتجات'; break;
+                    case 'architecture': serviceText = 'تصوير المعمار'; break;
+                    case 'nature': serviceText = 'تصوير الطبيعة'; break;
+                    case 'events': serviceText = 'تصوير الفعاليات'; break;
+                    default: serviceText = service;
+                }
+                
+                // إنشاء نص الرسالة
+                const whatsappMessage = `*طلب حجز جديد - عبدالله بن غديد*\n\n` +
+                                      `*الاسم:* ${name}\n` +
+                                      `*رقم الجوال:* ${phone}\n` +
+                                      `*البريد الإلكتروني:* ${email}\n` +
+                                      `*نوع الخدمة:* ${serviceText}\n` +
+                                      `*التاريخ المفضل:* ${date}\n` +
+                                      `*تفاصيل إضافية:* ${message || 'لا توجد'}\n\n` +
+                                      `_تم إرسال هذا الطلب من خلال الموقع الإلكتروني_`;
+                
+                // ترميز النص لرابط واتساب
+                const encodedMessage = encodeURIComponent(whatsappMessage);
+                
+                // رقم الواتساب (تم تعديله إلى 773684474)
+                const whatsappNumber = '773684474';
+                
+                // إنشاء رابط واتساب
+                const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+                
+                // فتح واتساب في نافذة جديدة
+                window.open(whatsappURL, '_blank');
+                
+                // عرض رسالة تأكيد
+                alert('جاري فتح واتساب لإرسال طلب الحجز...\n\nإذا لم يتم فتح واتساب تلقائياً، يرجى نسخ الرابط:\n' + whatsappURL);
+                
+                // إعادة تعيين النموذج
                 bookingForm.reset();
             });
             
@@ -1538,7 +1569,6 @@
             loginForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 alert('تم تسجيل الدخول بنجاح! يتم الآن توجيهك إلى لوحة التحكم.');
-                // في التطبيق الحقيقي، هنا سيتم إرسال البيانات إلى الخادم
             });
             
             // معالجة نموذج إنشاء حساب
@@ -1556,7 +1586,6 @@
                 
                 alert('تم إنشاء الحساب بنجاح! يرجى التحقق من بريدك الإلكتروني لتأكيد الحساب.');
                 registerForm.reset();
-                // التبديل إلى تسجيل الدخول
                 authTabs[0].click();
             });
             
@@ -1587,4 +1616,4 @@
         });
     </script>
 </body>
-</html>
+    </html>
