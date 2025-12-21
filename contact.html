@@ -1,14 +1,1655 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<title>التواصل</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عبدالله بن غديد | مصور فوتوغرافي محترف</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #0c2461;
+            --secondary-color: #f7b731;
+            --accent-color: #eb3b5a;
+            --light-color: #f8f9fa;
+            --dark-color: #2d3436;
+            --transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 100px 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+            bottom: -20px;
+            right: 50%;
+            transform: translateX(50%);
+            border-radius: 5px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: linear-gradient(to left, var(--primary-color), #1e3799);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            box-shadow: var(--shadow);
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(12, 36, 97, 0.2);
+            background: linear-gradient(to left, #1e3799, var(--primary-color));
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(to left, var(--secondary-color), #fa8231);
+        }
+        
+        .btn-secondary:hover {
+            background: linear-gradient(to left, #fa8231, var(--secondary-color));
+        }
+        
+        .btn-whatsapp {
+            background: linear-gradient(to left, #25D366, #128C7E);
+        }
+        
+        .btn-whatsapp:hover {
+            background: linear-gradient(to left, #128C7E, #25D366);
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        .logo i {
+            margin-left: 10px;
+            font-size: 2rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-right: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: -5px;
+            right: 0;
+            transition: var(--transition);
+            border-radius: 3px;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(12, 36, 97, 0.85), rgba(12, 36, 97, 0.9)), url('https://images.unsplash.com/photo-1554048612-b6a482bc67e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+            position: relative;
+            padding-top: 150px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .about {
+            background-color: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .about-img {
+            flex: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: #555;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: #777;
+        }
+        
+        .portfolio {
+            background-color: #f5f7ff;
+        }
+        
+        .portfolio-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+        
+        .filter-btn {
+            padding: 10px 25px;
+            background-color: white;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .portfolio-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+            height: 300px;
+            cursor: pointer;
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(to top, rgba(12, 36, 97, 0.9), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 25px;
+            color: white;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .services {
+            background-color: white;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-bottom: 5px solid transparent;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            border-bottom-color: var(--secondary-color);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), #1e3799);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .service-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .service-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .service-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            margin: 15px 0;
+        }
+        
+        .booking {
+            background-color: #f5f7ff;
+        }
+        
+        .booking-container {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .booking-form {
+            flex: 1;
+            background-color: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+        
+        .booking-info {
+            flex: 1;
+        }
+        
+        .booking-info h3 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .booking-info ul {
+            list-style: none;
+            margin-top: 30px;
+        }
+        
+        .booking-info li {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .booking-info i {
+            color: var(--secondary-color);
+            font-size: 1.3rem;
+            margin-left: 15px;
+            margin-top: 5px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        /* قسم التواصل المعدل */
+        .contact {
+            background-color: #f5f7ff;
+        }
+        
+        .contact-content {
+            display: flex;
+            gap: 60px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 35px;
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 20px;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-text h4 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+        
+        /* قسم الحسابات الاجتماعية */
+        .social-accounts {
+            background-color: white;
+        }
+        
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .social-account-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .social-account-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .social-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .instagram-bg {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+        
+        .twitter-bg {
+            background: linear-gradient(45deg, #1DA1F2, #1A91DA);
+        }
+        
+        .snapchat-bg {
+            background: linear-gradient(45deg, #FFFC00, #FFF700);
+            color: #000 !important;
+        }
+        
+        .youtube-bg {
+            background: linear-gradient(45deg, #FF0000, #CC0000);
+        }
+        
+        .tiktok-bg {
+            background: linear-gradient(45deg, #000000, #25F4EE, #FE2C55);
+        }
+        
+        .social-account-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .social-account-card p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .account-link {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .account-link:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .code-comment {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 40px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .comment-line {
+            color: #22863a;
+            margin-bottom: 5px;
+        }
+        
+        .comment-line .highlight {
+            color: #d73a49;
+            font-weight: bold;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-right: 10px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 992px) {
+            .about-content, .booking-container, .contact-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.3rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .social-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                text-align: center;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            section {
+                padding: 70px 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .booking-form, .contact-form {
+                padding: 30px 20px;
+            }
+            
+            .stats {
+                flex-wrap: wrap;
+                gap: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
-<div class="center-box">
-<h2>التواصل السريع</h2>
-<a class="btn" href="https://wa.me/967776503890">التواصل عبر واتساب</a>
-</div>
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-camera"></i>
+                عبدالله<span>بن غديد</span>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#about">عن المصور</a></li>
+                    <li><a href="#portfolio">معرض الأعمال</a></li>
+                    <li><a href="#services">الخدمات</a></li>
+                    <li><a href="#booking">الحجوزات</a></li>
+                    <li><a href="#social">حساباتي</a></li>
+                    <li><a href="#contact">تواصل معي</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>عبدالله بن غديد</h1>
+                <p>مصور فوتوغرافي محترف متخصص في التصوير الفني، الإعلاني، والمناسبات. أكثر من 10 سنوات من الخبرة في مجال التصوير الفوتوغرافي.</p>
+                <div class="hero-btns">
+                    <a href="#portfolio" class="btn">استعرض أعمالي</a>
+                    <a href="#booking" class="btn btn-secondary">احجز جلستك الآن</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>عن المصور</h2>
+                <p>تعرف على عبدالله بن غديد وخبراته في عالم التصوير الفوتوغرافي</p>
+            </div>
+            
+            <div class="about-content fade-in">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="عبدالله بن غديد">
+                </div>
+                <div class="about-text">
+                    <h3>عبدالله بن غديد</h3>
+                    <p>مصور فوتوغرافي محترف من السعودية، بدأت رحلتي مع التصوير منذ عام 2012. تخصصت في التصوير الفني والإعلاني بالإضافة إلى تصوير المناسبات والأعراس.</p>
+                    <p>حاصل على عدة شهادات دولية في التصوير الفوتوغرافي ومعالجة الصور، وقد شاركت في معارض محلية ودولية وحصلت على جوائز تقديرية في مجال التصوير.</p>
+                    <p>أؤمن بأن كل لحظة تستحق أن تخلد في صورة، وهدفي هو تحويل اللحظات العادية إلى تحف فنية تبقى في الذاكرة.</p>
+                    
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">سنوات خبرة</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1500+</span>
+                            <span class="stat-label">جلسة تصوير</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">25+</span>
+                            <span class="stat-label">جائزة فنية</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">رضا العملاء</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>معرض الأعمال</h2>
+                <p>استعرض مجموعة من أبرز أعمالي في مجالات التصوير المختلفة</p>
+            </div>
+            
+            <div class="portfolio-filter fade-in">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="wedding">الأعراس</button>
+                <button class="filter-btn" data-filter="portrait">الوجوه</button>
+                <button class="filter-btn" data-filter="product">الإعلاني</button>
+                <button class="filter-btn" data-filter="nature">الطبيعة</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="wedding">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" alt="تصوير أعراس">
+                    <div class="portfolio-overlay">
+                        <h3>تصوير أعراس</h3>
+                        <p>لحظات لا تنسى من أجمل الأعراس</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="portrait">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2068&q=80" alt="تصوير وجوه">
+                    <div class="portfolio-overlay">
+                        <h3>تصوير وجوه</h3>
+                        <p>لقطة فنية تعبر عن الشخصية</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="product">
+                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2064&q=80" alt="تصوير إعلاني">
+                    <div class="portfolio-overlay">
+                        <h3>تصوير إعلاني</h3>
+                        <p>لقطات احترافية للمنتجات</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="nature">
+                    <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80" alt="تصوير طبيعة">
+                    <div class="portfolio-overlay">
+                        <h3>تصوير طبيعة</h3>
+                        <p>جمال الطبيعة بلقطة فنية</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="wedding">
+                    <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="تصوير أعراس">
+                    <div class="portfolio-overlay">
+                        <h3>لحظة الزفاف</h3>
+                        <p>لحظة القسم في حفل الزفاف</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item" data-category="portrait">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2064&q=80" alt="تصوير وجوه">
+                    <div class="portfolio-overlay">
+                        <h3>بورتريه فني</h3>
+                        <p>تصوير فني للوجوه بإضاءة احترافية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>الخدمات</h2>
+                <p>أقدم مجموعة من الخدمات الاحترافية في مجال التصوير الفوتوغرافي</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-ring"></i>
+                    </div>
+                    <h3>تصوير الأعراس</h3>
+                    <p>تصوير كامل لحفل الزفاف بجميع تفاصيله، مع معالجة احترافية للصور وتصميم ألبوم فاخر.</p>
+                    <div class="service-price">ابتداءً من 3000 ريال</div>
+                    <a href="#booking" class="btn">احجز الآن</a>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>تصوير شخصي</h3>
+                    <p>جلسات تصوير شخصية احترافية في الاستوديو أو الخارج، مع إمكانية اختيار الديكور والإضاءة.</p>
+                    <div class="service-price">ابتداءً من 800 ريال</div>
+                    <a href="#booking" class="btn">احجز الآن</a>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <h3>تصوير المنتجات</h3>
+                    <p>تصوير احترافي للمنتجات بغرض التسويق والإعلان، مع معالجة الصور لتظهر بأفضل شكل.</p>
+                    <div class="service-price">ابتداءً من 500 ريال</div>
+                    <a href="#booking" class="btn">احجز الآن</a>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>تصوير المعمار</h3>
+                    <p>تصوير المباني والتصميمات المعمارية بزوايا إبداعية تظهر جمال التصميم والتفاصيل.</p>
+                    <div class="service-price">ابتداءً من 1200 ريال</div>
+                    <a href="#booking" class="btn">احجز الآن</a>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <h3>تصوير الطبيعة</h3>
+                    <p>جلسات تصوير في أحضان الطبيعة، تخلد أجمل اللحظات في الأماكن الطبيعية الخلابة.</p>
+                    <div class="service-price">ابتداءً من 1000 ريال</div>
+                    <a href="#booking" class="btn">احجز الآن</a>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>تصوير الفعاليات</h3>
+                    <p>تصوير فعاليات الشركات والمؤتمرات والحفلات، مع تسليم الصور في أسرع وقت.</p>
+                    <div class="service-price">ابتداءً من 1500 ريال</div>
+                    <a href="#booking" class="btn">احجز الآن</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الحجز المعدل -->
+    <section id="booking" class="booking">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>حجز الجلسات</h2>
+                <p>احجز جلستك التصويرية الآن وتمتع بأفضل الخدمات الاحترافية</p>
+            </div>
+            
+            <div class="booking-container fade-in">
+                <div class="booking-form">
+                    <h3>نموذج الحجز</h3>
+                    <form id="bookingForm">
+                        <div class="form-group">
+                            <label for="name">الاسم الكامل</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">رقم الجوال</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">نوع الخدمة</label>
+                            <select id="service" class="form-control" required>
+                                <option value="">اختر الخدمة</option>
+                                <option value="wedding">تصوير الأعراس</option>
+                                <option value="portrait">تصوير شخصي</option>
+                                <option value="product">تصوير المنتجات</option>
+                                <option value="architecture">تصوير المعمار</option>
+                                <option value="nature">تصوير الطبيعة</option>
+                                <option value="events">تصوير الفعاليات</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="date">التاريخ المفضل</label>
+                            <input type="date" id="date" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">تفاصيل إضافية</label>
+                            <textarea id="message" class="form-control" rows="5"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-whatsapp" style="width: 100%;">
+                            <i class="fab fa-whatsapp"></i> إرسال طلب الحجز إلى واتساب
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="booking-info">
+                    <h3>معلومات الحجز</h3>
+                    <p>بعد إرسال طلب الحجز، سيتم فتح تطبيق واتساب تلقائيًا لإرسال تفاصيل حجزك مباشرة إلى المصور.</p>
+                    
+                    <ul>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>الحجز المسبق</strong>
+                                <p>يجب الحجز قبل أسبوع على الأقل من الموعد المطلوب</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>التأكيد</strong>
+                                <p>سيتم التواصل معك خلال 24 ساعة لتأكيد الحجز وتفاصيل الدفع</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>الإلغاء والتعديل</strong>
+                                <p>يمكنك إلغاء أو تعديل الحجز قبل 48 ساعة من الموعد المحدد</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>تسليم الأعمال</strong>
+                                <p>يتم تسليم الصور النهائية خلال 7-14 يوم عمل من تاريخ الجلسة</p>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <div style="margin-top: 40px;">
+                        <h4>للتواصل السريع:</h4>
+                        <p><i class="fas fa-phone" style="color: var(--primary-color); margin-left: 10px;"></i> 773 684 474</p>
+                        <p><i class="fab fa-whatsapp" style="color: #25D366; margin-left: 10px;"></i> واتساب: 773 684 474</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الحسابات الاجتماعية الجديد -->
+    <section id="social" class="social-accounts">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>حسابات التواصل الاجتماعي</h2>
+                <p>تابعني على منصات التواصل الاجتماعي لمشاهدة أحدث أعمالي</p>
+            </div>
+            
+            <div class="social-grid">
+                <div class="social-account-card fade-in">
+                    <div class="social-icon instagram-bg">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h3>انستغرام</h3>
+                    <p>أشارك أحدث أعمالي الفوتوغرافية وخلف الكواليس من جلسات التصوير</p>
+                    <!-- تعليق: ضع رابط الانستغرام الحقيقي هنا -->
+                    <!--
+                    <a href="https://instagram.com/اسم_الحساب_الحقيقي" class="account-link" target="_blank">
+                        تابعني على انستغرام
+                    </a>
+                    -->
+                    <a href="#" class="account-link" onclick="alert('ضع رابط الانستغرام الحقيقي في الكود المعلق أعلاه')">
+                        تابعني على انستغرام
+                    </a>
+                </div>
+                
+                <div class="social-account-card fade-in">
+                    <div class="social-icon twitter-bg">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                    <h3>تويتر</h3>
+                    <p>أشارك نصائح في التصوير الفوتوغرافي وأعلن عن العروض الجديدة</p>
+                    <!-- تعليق: ضع رابط التويتر الحقيقي هنا -->
+                    <!--
+                    <a href="https://twitter.com/اسم_الحساب_الحقيقي" class="account-link" target="_blank">
+                        تابعني على تويتر
+                    </a>
+                    -->
+                    <a href="#" class="account-link" onclick="alert('ضع رابط التويتر الحقيقي في الكود المعلق أعلاه')">
+                        تابعني على تويتر
+                    </a>
+                </div>
+                
+                <div class="social-account-card fade-in">
+                    <div class="social-icon snapchat-bg">
+                        <i class="fab fa-snapchat-ghost"></i>
+                    </div>
+                    <h3>سناب شات</h3>
+                    <p>أشارك لحظات حية من جلسات التصوير واللحظات اليومية</p>
+                    <!-- تعليق: ضع رابط السناب شات الحقيقي هنا -->
+                    <!--
+                    <a href="https://snapchat.com/add/اسم_الحساب_الحقيقي" class="account-link" target="_blank">
+                        تابعني على سناب شات
+                    </a>
+                    -->
+                    <a href="#" class="account-link" onclick="alert('ضع رابط السناب شات الحقيقي في الكود المعلق أعلاه')">
+                        تابعني على سناب شات
+                    </a>
+                </div>
+                
+                <div class="social-account-card fade-in">
+                    <div class="social-icon youtube-bg">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <h3>يوتيوب</h3>
+                    <p>فيديوهات تعليمية عن التصوير وتقنيات المعالجة</p>
+                    <!-- تعليق: ضع رابط اليوتيوب الحقيقي هنا -->
+                    <!--
+                    <a href="https://youtube.com/c/اسم_الحساب_الحقيقي" class="account-link" target="_blank">
+                        اشترك في قناتي
+                    </a>
+                    -->
+                    <a href="#" class="account-link" onclick="alert('ضع رابط اليوتيوب الحقيقي في الكود المعلق أعلاه')">
+                        اشترك في قناتي
+                    </a>
+                </div>
+                
+                <div class="social-account-card fade-in">
+                    <div class="social-icon tiktok-bg">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <h3>تيك توك</h3>
+                    <p>فيديوهات قصيرة عن التصوير ونصائح سريعة</p>
+                    <!-- تعليق: ضع رابط التيك توك الحقيقي هنا -->
+                    <!--
+                    <a href="https://tiktok.com/@اسم_الحساب_الحقيقي" class="account-link" target="_blank">
+                        تابعني على تيك توك
+                    </a>
+                    -->
+                    <a href="#" class="account-link" onclick="alert('ضع رابط التيك توك الحقيقي في الكود المعلق أعلاه')">
+                        تابعني على تيك توك
+                    </a>
+                </div>
+            </div>
+            
+            <!-- تعليق توضيحي لإضافة الروابط الحقيقية -->
+            <div class="code-comment fade-in">
+                <p class="comment-line">// =============================================</p>
+                <p class="comment-line">// <span class="highlight">تعليمات لإضافة الروابط الحقيقية:</span></p>
+                <p class="comment-line">// 1. ابحث عن قسم "تعليق: ضع رابط ... الحقيقي هنا"</p>
+                <p class="comment-line">// 2. انسخ الرابط الحقيقي لكل حساب</p>
+                <p class="comment-line">// 3. ضع الرابط بين علامتي الاقتباس في السطر الذي يبدأ بـ href="<span class="highlight">ضع_الرابط_هنا</span>"</p>
+                <p class="comment-line">// 4. احذف السطور التي تحتوي على onclick="alert(...)"</p>
+                <p class="comment-line">// 5. احذف علامات التعليق <!-- --> حول الرابط الحقيقي</p>
+                <p class="comment-line">// مثال للانستغرام:</p>
+                <p class="comment-line">// <span class="highlight">&lt;a href="https://instagram.com/abdullah_photography" class="account-link" target="_blank"&gt;</span></p>
+                <p class="comment-line">//     تابعني على انستغرام</p>
+                <p class="comment-line">// <span class="highlight">&lt;/a&gt;</span></p>
+                <p class="comment-line">// =============================================</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التواصل المعدل -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>تواصل معي</h2>
+                <p>للاستفسارات أو لمعرفة المزيد عن خدماتي، لا تتردد في التواصل معي</p>
+            </div>
+            
+            <div class="contact-content fade-in">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>العنوان</h4>
+                            <p>الرياض، حي العليا، شارع الملك فهد</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>الهاتف</h4>
+                            <p>+966 773 684 474</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>واتساب</h4>
+                            <p>+966 773 684 474</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>البريد الإلكتروني</h4>
+                            <p>abdullah@photography.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>ساعات العمل</h4>
+                            <p>السبت - الخميس: 9 صباحاً - 9 مساءً</p>
+                            <p>الجمعة: 4 مساءً - 9 مساءً</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 40px;">
+                        <h3>الرد السريع على الاستفسارات</h3>
+                        <p>أفضل طريقة للتواصل السريع معي هي عبر واتساب. أرد على جميع الرسائل خلال 24 ساعة.</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>أرسل لي رسالة</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="contactName">الاسم الكامل</label>
+                            <input type="text" id="contactName" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactPhone">رقم الجوال</label>
+                            <input type="tel" id="contactPhone" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactEmail">البريد الإلكتروني</label>
+                            <input type="email" id="contactEmail" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactSubject">الموضوع</label>
+                            <input type="text" id="contactSubject" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactMessage">الرسالة</label>
+                            <textarea id="contactMessage" class="form-control" rows="6" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-whatsapp" style="width: 100%;">
+                            <i class="fab fa-whatsapp"></i> إرسال الرسالة إلى واتساب
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>عبدالله بن غديد</h3>
+                    <p>مصور فوتوغرافي محترف مع أكثر من 10 سنوات من الخبرة في مختلف مجالات التصوير الفوتوغرافي.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-snapchat-ghost"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#about">عن المصور</a></li>
+                        <li><a href="#portfolio">معرض الأعمال</a></li>
+                        <li><a href="#services">الخدمات</a></li>
+                        <li><a href="#booking">الحجوزات</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>الخدمات</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">تصوير الأعراس</a></li>
+                        <li><a href="#services">تصوير شخصي</a></li>
+                        <li><a href="#services">تصوير المنتجات</a></li>
+                        <li><a href="#services">تصوير المعمار</a></li>
+                        <li><a href="#services">تصوير الفعاليات</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>اتصل بنا</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt" style="margin-left: 10px;"></i> الرياض، حي العليا</li>
+                        <li><i class="fas fa-phone" style="margin-left: 10px;"></i> +966 773 684 474</li>
+                        <li><i class="fab fa-whatsapp" style="margin-left: 10px;"></i> واتساب: 773 684 474</li>
+                        <li><i class="fas fa-envelope" style="margin-left: 10px;"></i> abdullah@photography.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة &copy; 2023 عبدالله بن غديد | تصميم وتطوير باستخدام أحدث التقنيات</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // تأثير التمرير للشريط العلوي
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // القائمة المتحركة للهواتف
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navMenu = document.getElementById('navMenu');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+            });
+            
+            // إغلاق القائمة عند النقر على رابط
+            document.querySelectorAll('#navMenu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+            
+            // تأثيرات التمرير للعناصر
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInOnScroll = function() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', fadeInOnScroll);
+            fadeInOnScroll();
+            
+            // تصفية المعرض
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    portfolioItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'scale(1)';
+                            }, 10);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'scale(0.8)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+            
+            // =============================================
+            // نظام الحجز الحقيقي إلى واتساب
+            // =============================================
+            const bookingForm = document.getElementById('bookingForm');
+            bookingForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // جمع بيانات النموذج
+                const name = document.getElementById('name').value;
+                const phone = document.getElementById('phone').value;
+                const email = document.getElementById('email').value;
+                const service = document.getElementById('service').value;
+                const date = document.getElementById('date').value;
+                const message = document.getElementById('message').value;
+                
+                // تحويل اسم الخدمة إلى نص مفهوم
+                let serviceText = '';
+                switch(service) {
+                    case 'wedding': serviceText = 'تصوير الأعراس'; break;
+                    case 'portrait': serviceText = 'تصوير شخصي'; break;
+                    case 'product': serviceText = 'تصوير المنتجات'; break;
+                    case 'architecture': serviceText = 'تصوير المعمار'; break;
+                    case 'nature': serviceText = 'تصوير الطبيعة'; break;
+                    case 'events': serviceText = 'تصوير الفعاليات'; break;
+                    default: serviceText = service;
+                }
+                
+                // إنشاء نص الرسالة
+                const whatsappMessage = `*طلب حجز جديد - عبدالله بن غديد*\n\n` +
+                                      `*الاسم:* ${name}\n` +
+                                      `*رقم الجوال:* ${phone}\n` +
+                                      `*البريد الإلكتروني:* ${email}\n` +
+                                      `*نوع الخدمة:* ${serviceText}\n` +
+                                      `*التاريخ المفضل:* ${date}\n` +
+                                      `*تفاصيل إضافية:* ${message || 'لا توجد'}\n\n` +
+                                      `_تم إرسال هذا الطلب من خلال الموقع الإلكتروني_`;
+                
+                // ترميز النص لرابط واتساب
+                const encodedMessage = encodeURIComponent(whatsappMessage);
+                
+                // رقم الواتساب
+                const whatsappNumber = '773684474';
+                
+                // إنشاء رابط واتساب
+                const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+                
+                // فتح واتساب في نافذة جديدة
+                window.open(whatsappURL, '_blank');
+                
+                // عرض رسالة تأكيد
+                alert('جاري فتح واتساب لإرسال طلب الحجز...\n\nإذا لم يتم فتح واتساب تلقائياً، يرجى نسخ الرابط:\n' + whatsappURL);
+                
+                // إعادة تعيين النموذج
+                bookingForm.reset();
+            });
+            
+            // =============================================
+            // نظام الاتصال الحقيقي إلى واتساب
+            // =============================================
+            const contactForm = document.getElementById('contactForm');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // جمع بيانات النموذج
+                const name = document.getElementById('contactName').value;
+                const phone = document.getElementById('contactPhone').value;
+                const email = document.getElementById('contactEmail').value;
+                const subject = document.getElementById('contactSubject').value;
+                const message = document.getElementById('contactMessage').value;
+                
+                // إنشاء نص الرسالة
+                const whatsappMessage = `*رسالة تواصل جديدة - عبدالله بن غديد*\n\n` +
+                                      `*الاسم:* ${name}\n` +
+                                      `*رقم الجوال:* ${phone}\n` +
+                                      `*البريد الإلكتروني:* ${email}\n` +
+                                      `*الموضوع:* ${subject}\n` +
+                                      `*الرسالة:*\n${message}\n\n` +
+                                      `_تم إرسال هذه الرسالة من خلال الموقع الإلكتروني_`;
+                
+                // ترميز النص لرابط واتساب
+                const encodedMessage = encodeURIComponent(whatsappMessage);
+                
+                // رقم الواتساب
+                const whatsappNumber = '773684474';
+                
+                // إنشاء رابط واتساب
+                const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+                
+                // فتح واتساب في نافذة جديدة
+                window.open(whatsappURL, '_blank');
+                
+                // عرض رسالة تأكيد
+                alert('جاري فتح واتساب لإرسال رسالتك...\n\nإذا لم يتم فتح واتساب تلقائياً، يرجى نسخ الرابط:\n' + whatsappURL);
+                
+                // إعادة تعيين النموذج
+                contactForm.reset();
+            });
+            
+            // تنعيم التمرير للروابط الداخلية
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // تعيين الحد الأدنى للتاريخ في نموذج الحجز
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            const minDate = tomorrow.toISOString().split('T')[0];
+            document.getElementById('date').setAttribute('min', minDate);
+            
+            // إضافة رمز التيك توك إذا لم يكن موجودًا
+            const style = document.createElement('style');
+            style.innerHTML = `
+                .fa-tiktok:before {
+                    content: "\\e07b";
+                    font-family: "Font Awesome 5 Brands";
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
 </body>
-</html>
+  </html>
