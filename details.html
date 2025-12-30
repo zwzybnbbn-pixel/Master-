@@ -610,19 +610,24 @@ document.addEventListener('DOMContentLoaded', init);
             actionsSection.className = 'actions-section';
             
             // زر الواتساب
-            const whatsappLink = document.createElement('a');
-            whatsappLink.className = 'action-button whatsapp-button';
-            whatsappLink.href = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(`أريد طلب المنتج: ${product.name} - السعر: ${product.price} ر.س`)}`;
-            whatsappLink.target = '_blank';
-            
-            const whatsappIcon = document.createElement('i');
-            whatsappIcon.className = 'fab fa-whatsapp';
-            
-            const whatsappText = document.createElement('span');
-            whatsappText.textContent = 'طلب عبر واتساب';
-            
-            whatsappLink.appendChild(whatsappIcon);
-            whatsappLink.appendChild(whatsappText);
+            // الرقم بالصيغة الدولية الصحيحة
+const phoneNumber = '967777076917'; 
+
+const whatsappLink = document.createElement('a');
+whatsappLink.className = 'action-button whatsapp-button';
+// إنشاء الرابط مع نص الرسالة المشفر
+whatsappLink.href = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(`أريد طلب المنتج: ${product.name}\nالسعر: ${product.price} ر.س`)}`;
+whatsappLink.target = '_blank';
+
+const whatsappIcon = document.createElement('i');
+whatsappIcon.className = 'fab fa-whatsapp';
+
+const whatsappText = document.createElement('span');
+whatsappText.textContent = 'طلب عبر واتساب';
+
+whatsappLink.appendChild(whatsappIcon);
+whatsappLink.appendChild(whatsappText);
+
             
             // زر إضافة للسلة
             const cartButton = document.createElement('button');
