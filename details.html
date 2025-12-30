@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل المنتج | دار الناصر</title>
+    <meta name="description" content="تفاصيل المنتج - عطر فاخر من مجموعة الناصر">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --gold-light: #f4e4a6;
+            --gold-dark: #b8941f;
+            --black: #0a0a0a;
+            --black-light: #1a1a1a;
+            --white: #ffffff;
+            --gray: #8a8a8a;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            --border-radius: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: 'Cairo', sans-serif;
+            direction: rtl;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .details-header {
+            background: var(--black);
+            padding: 20px 5%;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .back-button {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            padding: 10px 25px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        /* Loading */
+        #loading {
+            text-align: center;
+            padding: 100px 20px;
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        /* Error Message */
+        .error-message {
+            text-align: center;
+            padding: 100px 20px;
+            color: #ff6b6b;
+            font-size: 1.2rem;
+        }
+
+        /* Product Container */
+        .product-details-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 5%;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        /* Images Section */
+        .images-section {
+            position: sticky;
+            top: 40px;
+        }
+
+        .main-image-container {
+            background: var(--black-light);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            margin-bottom: 20px;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .main-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+
+        .thumbnails-container {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            background: var(--black-light);
+            padding: 5px;
+        }
+
+        .thumbnail:hover,
+        .thumbnail.active {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        /* Info Section */
+        .info-section {
+            padding: 20px 0;
+        }
+
+        .product-title {
+            font-family: 'Amiri', serif;
+            font-size: 3.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .product-price {
+            font-size: 2.8rem;
+            color: var(--gold);
+            font-weight: bold;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .original-price {
+            font-size: 2rem;
+            color: var(--gray);
+            text-decoration: line-through;
+        }
+
+        .product-description {
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            border-right: 3px solid var(--gold);
+            padding-right: 20px;
+        }
+
+        .product-meta {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .meta-item {
+            background: var(--black-light);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .meta-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .meta-value {
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Actions */
+        .actions-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .action-button {
+            width: 100%;
+            padding: 18px;
+            border: none;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .whatsapp-button {
+            background: #25D366;
+            color: white;
+        }
+
+        .whatsapp-button:hover {
+            background: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+        }
+
+        .cart-button {
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+        }
+
+        .cart-button:hover {
+            background: var(--gold);
+            color: var(--black);
+            transform: translateY(-3px);
+        }
+
+        /* Recommendations */
+        .recommendations-section {
+            margin-top: 100px;
+            padding-top: 60px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .recommendations-title {
+            font-family: 'Amiri', serif;
+            font-size: 2.5rem;
+            color: var(--white);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .recommendations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        /* Related Product */
+        .related-product {
+            background: var(--black-light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .related-product:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .related-image {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            padding: 20px;
+        }
+
+        .related-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .related-title {
+            font-family: 'Amiri', serif;
+            font-size: 1.3rem;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+
+        .related-price {
+            color: var(--gold);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .product-grid {
+                gap: 40px;
+            }
+            
+            .product-title {
+                font-size: 3rem;
+            }
+            
+            .product-price {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .images-section {
+                position: static;
+            }
+            
+            .main-image-container {
+                height: 400px;
+            }
+            
+            .product-title {
+                font-size: 2.5rem;
+            }
+            
+            .product-meta {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-title {
+                font-size: 2rem;
+            }
+            
+            .product-price {
+                font-size: 2rem;
+            }
+            
+            .main-image-container {
+                height: 300px;
+                padding: 20px;
+            }
+            
+            .thumbnails-container {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="details-header">
+        <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-right"></i>
+            العودة للمتجر
+        </a>
+    </header>
+
+    <!-- Loading State -->
+    <div id="loading">جاري تحميل تفاصيل المنتج...</div>
+
+    <!-- Product Details (Will be filled by JavaScript) -->
+    <div id="product-details-container"></div>
+
+    <!-- JavaScript -->
+    <script type="module">
+        // استيراد Supabase
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+        
+        // إعداد العميل
+        const supabaseUrl = 'https://nqothizwtmvbvyrxoguz.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5xb3RoaXp3dG12YnZ5cnhvZ3V6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjcwMjc2ODEsImV4cCI6MjA4MjYwMzY4MX0.Hah1FyYJT-dQI0byUO7pNKB3NZqzkyICPh_0D_zdzis';
+        const supabase = createClient(supabaseUrl, supabaseKey);
+        
+        // عناصر DOM
+        const productContainer = document.getElementById('product-details-container');
+        const loadingElement = document.getElementById('loading');
+        const phoneNumber = '966501234567'; // رقم الواتساب الخاص بك
+
+        // الحصول على معرف المنتج من الرابط
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
+
+        // دالة التشغيل الرئيسية
+async function init() {
+    if (!productId) {
+        showError('لم يتم العثور على المنتج');
+    } else {
+        await loadProductDetails();
+    }
+}
+
+// استدعاء الدالة عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', init);
+
+
+        
+
+        // عرض رسالة خطأ
+        function showError(message) {
+            loadingElement.style.display = 'none';
+            
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message';
+            errorDiv.innerHTML = `
+                <i class="fas fa-exclamation-triangle" style="font-size: 3rem; margin-bottom: 20px;"></i>
+                <p>${message}</p>
+                <a href="index.html" style="color: var(--gold); margin-top: 20px; display: inline-block;">
+                    العودة للصفحة الرئيسية
+                </a>
+            `;
+            
+            productContainer.appendChild(errorDiv);
+        }
+
+        // إنشاء عنصر صورة مصغرة
+        function createThumbnail(imageUrl, isActive = false) {
+            const img = document.createElement('img');
+            img.className = `thumbnail ${isActive ? 'active' : ''}`;
+            img.src = imageUrl;
+            img.alt = 'صورة مصغرة';
+            
+            img.addEventListener('click', () => {
+                // تحديث الصورة الرئيسية
+                const mainImage = document.querySelector('.main-image');
+                if (mainImage) {
+                    mainImage.src = imageUrl;
+                }
+                
+                // تحديث الصورة النشطة
+                document.querySelectorAll('.thumbnail').forEach(thumb => {
+                    thumb.classList.remove('active');
+                });
+                img.classList.add('active');
+            });
+            
+            return img;
+        }
+
+        // إنشاء عنصر منتج ذو صلة
+        function createRelatedProduct(product) {
+            const article = document.createElement('article');
+            article.className = 'related-product';
+            
+            const link = document.createElement('a');
+            link.href = `details.html?id=${product.id}`;
+            link.style.textDecoration = 'none';
+            link.style.color = 'inherit';
+            
+            const image = document.createElement('img');
+            image.className = 'related-image';
+            image.src = product.image_url;
+            image.alt = product.name;
+            image.loading = 'lazy';
+            
+            const content = document.createElement('div');
+            content.className = 'related-content';
+            
+            const title = document.createElement('h3');
+            title.className = 'related-title';
+            title.textContent = product.name;
+            
+            const price = document.createElement('div');
+            price.className = 'related-price';
+            price.textContent = `${product.price} ر.س`;
+            
+            content.appendChild(title);
+            content.appendChild(price);
+            
+            link.appendChild(image);
+            link.appendChild(content);
+            article.appendChild(link);
+            
+            return article;
+        }
+
+        // عرض تفاصيل المنتج
+        async function renderProductDetails(product) {
+          productContainer.innerHTML = ''; 
+            // إخفاء شاشة التحميل
+            loadingElement.style.display = 'none';
+            
+            // إنشاء الحاوية الرئيسية
+            const container = document.createElement('div');
+            container.className = 'product-details-container';
+            
+            // إنشاء شبكة المنتج
+            const grid = document.createElement('div');
+            grid.className = 'product-grid';
+            
+            // قسم الصور
+            const imagesSection = document.createElement('div');
+            imagesSection.className = 'images-section';
+            
+            const mainImageContainer = document.createElement('div');
+            mainImageContainer.className = 'main-image-container';
+            
+            const mainImage = document.createElement('img');
+            mainImage.className = 'main-image';
+            mainImage.id = 'main-product-image';
+            mainImage.src = product.image_url;
+            mainImage.alt = product.name;
+            
+            mainImageContainer.appendChild(mainImage);
+            imagesSection.appendChild(mainImageContainer);
+            
+            // الصور المصغرة
+            const thumbnailsContainer = document.createElement('div');
+            thumbnailsContainer.className = 'thumbnails-container';
+            
+            // إضافة الصورة الرئيسية كأول صورة مصغرة
+            thumbnailsContainer.appendChild(createThumbnail(product.image_url, true));
+            
+            // إضافة الصور الإضافية إذا وجدت
+            if (product.additional_images && Array.isArray(product.additional_images)) {
+                product.additional_images.forEach((imageUrl, index) => {
+                    thumbnailsContainer.appendChild(createThumbnail(imageUrl));
+                });
+            }
+            
+            imagesSection.appendChild(thumbnailsContainer);
+            
+            // قسم المعلومات
+            const infoSection = document.createElement('div');
+            infoSection.className = 'info-section';
+            
+            const title = document.createElement('h1');
+            title.className = 'product-title';
+            title.textContent = product.name;
+            
+            const price = document.createElement('div');
+            price.className = 'product-price';
+            price.textContent = `${product.price} ر.س`;
+            
+            // إضافة السعر الأصلي إذا كان هناك تخفيض
+            if (product.original_price && product.original_price > product.price) {
+                const originalPrice = document.createElement('span');
+                originalPrice.className = 'original-price';
+                originalPrice.textContent = `${product.original_price} ر.س`;
+                price.appendChild(originalPrice);
+            }
+            
+            const description = document.createElement('div');
+            description.className = 'product-description';
+            description.textContent = product.description || 'عطر فاخر من مجموعة الناصر الخاصة، مصمم بعناية لأصحاب الذوق الرفيع.';
+            
+            // معلومات إضافية
+            const meta = document.createElement('div');
+            meta.className = 'product-meta';
+            
+            const metaItems = [
+                { label: 'الفئة', value: product.category || 'عطور فاخرة' },
+                { label: 'الحجم', value: product.size || '100 مل' },
+                { label: 'النوع', value: product.type || 'Eau de Parfum' },
+                { label: 'الجنس', value: product.gender || 'مناسب للجنسين' }
+            ];
+            
+            metaItems.forEach(item => {
+                const metaItem = document.createElement('div');
+                metaItem.className = 'meta-item';
+                
+                const label = document.createElement('div');
+                label.className = 'meta-label';
+                label.textContent = item.label;
+                
+                const value = document.createElement('div');
+                value.className = 'meta-value';
+                value.textContent = item.value;
+                
+                metaItem.appendChild(label);
+                metaItem.appendChild(value);
+                meta.appendChild(metaItem);
+            });
+            
+            // قسم الإجراءات
+            const actionsSection = document.createElement('div');
+            actionsSection.className = 'actions-section';
+            
+            // زر الواتساب
+            const whatsappLink = document.createElement('a');
+            whatsappLink.className = 'action-button whatsapp-button';
+            whatsappLink.href = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(`أريد طلب المنتج: ${product.name} - السعر: ${product.price} ر.س`)}`;
+            whatsappLink.target = '_blank';
+            
+            const whatsappIcon = document.createElement('i');
+            whatsappIcon.className = 'fab fa-whatsapp';
+            
+            const whatsappText = document.createElement('span');
+            whatsappText.textContent = 'طلب عبر واتساب';
+            
+            whatsappLink.appendChild(whatsappIcon);
+            whatsappLink.appendChild(whatsappText);
+            
+            // زر إضافة للسلة
+            const cartButton = document.createElement('button');
+            cartButton.className = 'action-button cart-button';
+            cartButton.type = 'button';
+            
+            const cartIcon = document.createElement('i');
+            cartIcon.className = 'fas fa-shopping-bag';
+            
+            const cartText = document.createElement('span');
+            cartText.textContent = 'إضافة للسلة';
+            
+            cartButton.appendChild(cartIcon);
+            cartButton.appendChild(cartText);
+            
+            cartButton.addEventListener('click', () => {
+                // إضافة المنتج للسلة (يمكنك حفظها في localStorage)
+                alert(`تمت إضافة ${product.name} إلى سلة المشتريات`);
+            });
+            
+            actionsSection.appendChild(whatsappLink);
+            actionsSection.appendChild(cartButton);
+            
+            // تجميع قسم المعلومات
+            infoSection.appendChild(title);
+            infoSection.appendChild(price);
+            infoSection.appendChild(description);
+            infoSection.appendChild(meta);
+            infoSection.appendChild(actionsSection);
+            
+            // تجميع الشبكة
+            grid.appendChild(imagesSection);
+            grid.appendChild(infoSection);
+            
+            container.appendChild(grid);
+            
+            // إضافة المنتجات المقترحة إذا كانت متاحة
+            if (product.related_products && product.related_products.length > 0) {
+                const recommendationsSection = document.createElement('section');
+                recommendationsSection.className = 'recommendations-section';
+                
+                const recommendationsTitle = document.createElement('h2');
+                recommendationsTitle.className = 'recommendations-title';
+                recommendationsTitle.textContent = 'منتجات قد تعجبك';
+                
+                const recommendationsGrid = document.createElement('div');
+                recommendationsGrid.className = 'recommendations-grid';
+                
+                recommendationsSection.appendChild(recommendationsTitle);
+                recommendationsSection.appendChild(recommendationsGrid);
+                
+                container.appendChild(recommendationsSection);
+            }
+            
+            // إضافة الحاوية إلى الصفحة
+            productContainer.appendChild(container);
+        }
+
+        // جلب تفاصيل المنتج
+        async function loadProductDetails() {
+            try {
+                const { data: product, error } = await supabase
+                    .from('products')
+                    .select('*')
+                    .eq('id', productId)
+                    .single();
+                
+                if (error) {
+                    throw error;
+                }
+                
+                await renderProductDetails(product);
+                
+                // جلب منتجات ذات صلة
+                await loadRelatedProducts(product.category);
+                
+            } catch (error) {
+                console.error('Error loading product details:', error);
+                showError('حدث خطأ في تحميل تفاصيل المنتج');
+            }
+        }
+
+        // جلب منتجات ذات صلة
+        async function loadRelatedProducts(category) {
+            try {
+                const { data: relatedProducts, error } = await supabase
+                    .from('products')
+                    .select('*')
+                    .neq('id', productId)
+                    .eq('category', category)
+                    .limit(4);
+                
+                if (!error && relatedProducts.length > 0) {
+                    const recommendationsGrid = document.querySelector('.recommendations-grid');
+                    if (recommendationsGrid) {
+                        relatedProducts.forEach(product => {
+                            recommendationsGrid.appendChild(createRelatedProduct(product));
+                        });
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading related products:', error);
+            }
+        }
+
+        // تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', loadProductDetails);
+    </script>
+</body>
+</html>
