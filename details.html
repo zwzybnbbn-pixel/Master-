@@ -629,27 +629,9 @@ whatsappLink.appendChild(whatsappIcon);
 whatsappLink.appendChild(whatsappText);
 
             
-            // زر إضافة للسلة
-            const cartButton = document.createElement('button');
-            cartButton.className = 'action-button cart-button';
-            cartButton.type = 'button';
             
-            const cartIcon = document.createElement('i');
-            cartIcon.className = 'fas fa-shopping-bag';
-            
-            const cartText = document.createElement('span');
-            cartText.textContent = 'إضافة للسلة';
-            
-            cartButton.appendChild(cartIcon);
-            cartButton.appendChild(cartText);
-            
-            cartButton.addEventListener('click', () => {
-                // إضافة المنتج للسلة (يمكنك حفظها في localStorage)
-                alert(`تمت إضافة ${product.name} إلى سلة المشتريات`);
-            });
             
             actionsSection.appendChild(whatsappLink);
-            actionsSection.appendChild(cartButton);
             
             // تجميع قسم المعلومات
             infoSection.appendChild(title);
