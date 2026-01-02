@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  
+  script-src 
+    'self'
+    https://cdn.jsdelivr.net
+    https://unpkg.com
+    https://esm.sh;
+  
+  style-src 
+    'self'
+    https://fonts.googleapis.com
+    https://cdnjs.cloudflare.com
+    https://unpkg.com;
+  
+  font-src 
+    'self'
+    https://fonts.gstatic.com
+    https://cdnjs.cloudflare.com;
+  
+  img-src 
+    'self'
+    data:
+    https:;
+  
+  connect-src 
+    'self'
+    https://*.supabase.co;
+  
+  frame-src 'none';
+  object-src 'none';
+  base-uri 'self';
+  form-action 'self';
+  frame-ancestors 'none';
+  
+  upgrade-insecure-requests;
+  block-all-mixed-content;
+">
+    <title>📝 نظام إبلاغ انقطاع الكهرباء</title>
+    
+    <!-- روابط خارجية -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- روابط الملفات المحلية -->
+    <link rel="stylesheet" href="reports.css">
+    
+    <!-- ملفات JavaScript -->
+    <script src="./supabase.js" type="module"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- بطاقة نموذج البلاغ -->
+        <div class="card">
+            <div class="form-header">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h2>📝 إرسال بلاغ جديد</h2>
+            </div>
+            
+            <form id="reportForm">
+                <div class="input-group">
+                    <label><i class="fas fa-bolt"></i> نوع المشكلة</label>
+                    <select id="type" required>
+                        <option value="" disabled selected>اختر نوع المشكلة</option>
+                        <option value="انقطاع كامل">انقطاع كامل</option>
+                        <option value="انخفاض الجهد">انخفاض الجهد</option>
+                        <option value="وميض مستمر">وميض مستمر</option>
+                        <option value="خطر كهربائي">خطر كهربائي</option>
+                        <option value="أخرى">أخرى</option>
+                    </select>
+                </div>
+                
+<div class="input-group">
+    <label><i class="fas fa-user"></i> الاسم</label>
+    <input type="text" id="name" required placeholder="أدخل اسمك الكامل" maxlength="20">
+</div>
+
+<div class="input-group">
+    <label><i class="fas fa-phone"></i> رقم الهاتف</label>
+    <input type="tel" id="phone" pattern="[0-9]{9}" placeholder="7xxxxxxxx" required maxlength="9">
+</div>
+
+<div class="input-group">
+    <label><i class="fas fa-map-marker-alt"></i> الحي / المنطقة</label>
+    <input type="text" id="location" required placeholder="مثال: حي النخيل، وسط المدينة" maxlength="10">
+</div>
+
+<div class="input-group">
+    <label><i class="fas fa-info-circle"></i> تفاصيل المشكلة</label>
+    <textarea id="details" required placeholder="صف المشكلة بالتفصيل (متى بدأت، ما التأثير، إلخ)" maxlength="50"></textarea>
+</div>
+
+<div class="progress-bar">
+    <div class="progress-fill" id="progressFill"></div>
+</div>   
+                <button type="submit" class="btn-submit" id="submitBtn">
+                    <i class="fas fa-paper-plane"></i> إرسال البلاغ
+                </button>
+            </form>
+        </div>
+        
+        <!-- فاصل -->
+        <div class="separator">
+            <span><i class="fas fa-list"></i> البلاغات السابقة</span>
+        </div>
+        
+        <!-- بطاقة عرض البلاغات -->
+        <div class="card">
+            <div class="reports-header">
+                <h2>📋 البلاغات المسجلة</h2>
+                <span class="reports-count" id="reportsCount">0 بلاغ</span>
+            </div>
+            
+            <div id="list" class="loading">
+                <i class="fas fa-spinner fa-spin"></i> جاري تحميل البلاغات...
+            </div>
+        </div>
+    </div>
+    
+    <!-- حاوية رسائل التنبيه -->
+    <div id="alertContainer"></div>
+    
+    <!-- ملف JavaScript الرئيسي -->
+    <script src="repoRtS.js" type="module"></script>
+</body>
+</html>
